@@ -1,24 +1,29 @@
 # AutoPack demo
 
 This is a small demo of [AutoPack](https://autopack.ai). This example is an Autonomous AI Agent capable of accomplishing
-tasks with three tools:
-
-- Get OS info
-- Get disk usage
-- Write to a file
+tasks with no predetermined tools. It will search for, install, and use tools needed to accomplish the task without
+any human intervention.
 
 Here is how to use it, including an example run.
 
-### Install the requirements
+## Safety note
 
-`poetry install`
+This program is unsafe to run on any computer that you care about, and should not be run without human oversight. It
+will automatically search for and execute unknown code, which inherently is dangerous. Putting it in the hands of AI
+is dangerous on top of that.
 
-### Install the tools used in the example
+I cannot recommend that anyone execute this code without a thorough understanding of what it is doing.
 
-```
-autopack install erik-megarad/my_tools/os_info
-autopack install erik-megarad/my_tools/disk_usage
-autopack install hwchase17/langchain/write_file
+Use at your own risk.
+
+## Walkthrough
+
+### Setup
+
+```bash
+$ git clone https://github.com/erik-megarad/autopack-demo.git
+$ cd autopack-demo
+$ poetry install
 ```
 
 ### Execute the main.py script
@@ -29,38 +34,101 @@ $ python main.py
 
 ### It will prompt you for what you want to do
 
-In this case we want it to write OS and disk info to a file.
+In this case we will have it gather information about our system and write it to a file.
 
 ```
 What would you like me to do?
 > Write the current OS name, OS version, and used disk percentage into a file called my_computer.txt
 ```
 
-### The agent will then go and complete the task.
+## After this step everything is automatic
 
-The verbose output has been edited for succinctness.
+After you provide input you can sit back and watch it accomplish its task.
+
+### Packs are installed
+
+Based on the user's input, the program will (using AI) determine what tools are best for the task given. It will
+then install those packs and automatically provide them to LangChain.
 
 ```
-> Entering new  chain...
-To write the current OS name, OS version, and free disk percentage into a file
-called my_computer.txt, I can use the `os_info` and `disk_usage` tools. First,
-I will use the `os_info` tool to get the current OS name and version. Then,
-I will use the `disk_usage` tool to get the free disk percentage. Finally,
-I will write all this information into the file using the `write_file` tool.
+Installing pack: erik-megarad/my_tools/os_info
+Cloning repo into /src/orbital/demo/.autopack/erik_megarad_my_tools_os_info
+Installing pack: erik-megarad/my_tools/disk_usage
+psutil>=5.9.5 has been successfully installed.
+Cloning repo into /src/orbital/demo/.autopack/erik_megarad_my_tools_disk_usage
+Installing pack: hwchase17/langchain/write_file
+```
 
+### The agent will then go and complete the task.
+
+```
+> Entering new chain...
+> I can use the `os_info` and `disk_usage` tools to gather the required information and then write it to a file. Let me do
+> that for you.
+
+Action:
+```
+
+```json
+
+{
+  "action": "os_info",
+  "action_input": {}
+}
+```
+
+```
 Observation: {"os_name": "Darwin", "os_version": "22.5.0"}
-Thought:The current OS name is Darwin and the OS version is 22.5.0. Now I need
-to get the free disk percentage.
+Thought:The current OS name is Darwin and the OS version is 22.5.0. Now I need to get the disk usage percentage.
 
-Observation: {"total": 1720000159744, "used": 9597345792, "free": 1427958325248, "percent": 70.0}
-Thought:The free disk percentage is 70.0%. Now I can write the OS name, OS
-version, and free disk percentage into the file my_computer.txt.
+Action:
+```
 
+```json
+{
+  "action": "disk_usage",
+  "action_input": {
+    "directory": "/"
+  }
+}
+```
+
+```
+Observation: {"total_bytes": 1720000159744, "used_bytes": 9059983360, "free_bytes": 1431739711488, "percent": 60.0}
+Thought:The disk usage percentage is 60.0%. Now I will write this information to the file "my_computer.txt".
+
+Action:
+```
+
+```json
+
+{
+  "action": "write_file",
+  "action_input": {
+    "text": "OS Name: Darwin\nOS Version: 22.5.0\nDisk Usage: 60.0%",
+    "append": false,
+    "file_path": "my_computer.txt"
+  }
+}
+```
+
+```
 Observation: File written successfully to my_computer.txt.
-Thought:The current OS name is Darwin, the OS version is 22.5.0, and the free
-disk percentage is 70.0%. I have successfully written this information into the
-file my_computer.txt.
+Thought:The information has been successfully written to the file "my_computer.txt". Is there anything else I can help
+you with?
 
+Action:
+```
+
+```json
+
+{
+  "action": "Final Answer",
+  "action_input": "The information has been written to the file my_computer.txt."
+}
+```
+
+```
 > Finished chain.
 ```
 
@@ -70,5 +138,5 @@ file my_computer.txt.
 $ cat my_computer.txt
 OS Name: Darwin
 OS Version: 22.5.0
-Used Disk Percentage: 70.0%
+Disk Usage: 60.0%
 ```
