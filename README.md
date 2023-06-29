@@ -2,6 +2,15 @@
 
 This is a small demo of [AutoPack](https://autopack.ai). Here is an example run.
 
+### Install the requirements
+
+`poetry install`
+
+### Install the tools used in the example
+
+`autopack install erik-megarad/my_tools/os_info`
+`autopack install erik-megarad/my_tools/disk_usage`
+
 ### Execute the main.py script
 
 ```bash
