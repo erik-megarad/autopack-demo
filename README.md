@@ -18,6 +18,7 @@ Here is how to use it, including an example run.
 ```
 autopack install erik-megarad/my_tools/os_info
 autopack install erik-megarad/my_tools/disk_usage
+autopack install hwchase17/langchain/write_file
 ```
 
 ### Execute the main.py script
@@ -37,7 +38,7 @@ What would you like me to do?
 
 ### The agent will then go and complete the task.
 
-The verbose output has been edited for clarity.
+The verbose output has been edited for succinctness.
 
 ```
 > Entering new  chain...

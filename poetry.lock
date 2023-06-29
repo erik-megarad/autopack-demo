@@ -153,13 +153,13 @@ tests-no-zope = ["cloudpickle", "hypothesis", "mypy (>=1.1.1)", "pympler", "pyte
 
 [[package]]
 name = "autopack-tools"
-version = "0.1.10"
+version = "0.1.12"
 description = "Package Manager for AI Agent tools"
 optional = false
 python-versions = ">=3.8.1,<4.0"
 files = [
-    {file = "autopack_tools-0.1.10-py3-none-any.whl", hash = "sha256:86750c8a152fdee5f4b2896d81980139196af087c375db9771f61d308b2db5d2"},
-    {file = "autopack_tools-0.1.10.tar.gz", hash = "sha256:2d8c05165e714f6f54d11caf76f1e6d486d3bfe522fb2a66fa5eef28ea03068b"},
+    {file = "autopack_tools-0.1.12-py3-none-any.whl", hash = "sha256:efdcc63084c71476a899ce8f2df0be7db167aa16d0f75a83e602e904a5a7d609"},
+    {file = "autopack_tools-0.1.12.tar.gz", hash = "sha256:44ee79a050d56a89c5cfedf7fc700ed7a2b4e83928076a5931672129568c5216"},
 ]
 
 [package.dependencies]
@@ -1310,4 +1310,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "b02f526c2b4b61bfd3715ebc7876fa6bd3efeccded17f09bde54d69af730e658"
+content-hash = "ce6f7f031f59d792872c3f10745489a76c1add99e4330d87fc8d37d5ee7fd1b0"
