@@ -41,19 +41,24 @@ The verbose output has been edited for clarity.
 
 ```
 > Entering new  chain...
-To write the current OS name, OS version, and free disk percentage into a file called my_computer.txt,
-I can use the `os_info` and `disk_usage` tools. First, I will use the `os_info` tool to get the current OS name and
-version. Then, I will use the `disk_usage` tool to get the free disk percentage. Finally, I will write all this
-information into the file using the `write_file` tool.
+To write the current OS name, OS version, and free disk percentage into a file
+called my_computer.txt, I can use the `os_info` and `disk_usage` tools. First,
+I will use the `os_info` tool to get the current OS name and version. Then,
+I will use the `disk_usage` tool to get the free disk percentage. Finally,
+I will write all this information into the file using the `write_file` tool.
 
 Observation: {"os_name": "Darwin", "os_version": "22.5.0"}
-Thought:The current OS name is Darwin and the OS version is 22.5.0. Now I need to get the free disk percentage.
+Thought:The current OS name is Darwin and the OS version is 22.5.0. Now I need
+to get the free disk percentage.
 
 Observation: {"total": 1720000159744, "used": 9597345792, "free": 1427958325248, "percent": 70.0}
-Thought:The free disk percentage is 70.0%. Now I can write the OS name, OS version, and free disk percentage into the file my_computer.txt.
+Thought:The free disk percentage is 70.0%. Now I can write the OS name, OS
+version, and free disk percentage into the file my_computer.txt.
 
 Observation: File written successfully to my_computer.txt.
-Thought:The current OS name is Darwin, the OS version is 22.5.0, and the free disk percentage is 70.0%. I have successfully written this information into the file my_computer.txt.
+Thought:The current OS name is Darwin, the OS version is 22.5.0, and the free
+disk percentage is 70.0%. I have successfully written this information into the
+file my_computer.txt.
 
 > Finished chain.
 ```
