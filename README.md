@@ -1,6 +1,6 @@
 # AutoPack demo
 
-This is a small demo of [AutoPack](https://autopack.ai). Here is an example run.
+This is a small demo of [AutoPack](https://autopack.ai). Here is how to use it, including an example run.
 
 ### Install the requirements
 
@@ -8,8 +8,10 @@ This is a small demo of [AutoPack](https://autopack.ai). Here is an example run.
 
 ### Install the tools used in the example
 
-`autopack install erik-megarad/my_tools/os_info`
-`autopack install erik-megarad/my_tools/disk_usage`
+```
+autopack install erik-megarad/my_tools/os_info
+autopack install erik-megarad/my_tools/disk_usage
+```
 
 ### Execute the main.py script
 
@@ -26,7 +28,9 @@ What would you like me to do?
 > Write the current OS name, OS version, and free disk percentage into a file called my_computer.txt
 ```
 
-The agent will then go and complete the task. The verbose output has been edited for clarity.
+### The agent will then go and complete the task.
+
+The verbose output has been edited for clarity.
 
 ```
 > Entering new  chain...
