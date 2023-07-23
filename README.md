@@ -6,16 +6,6 @@ any human intervention.
 
 Here is how to use it, including an example run.
 
-## Safety note
-
-This program is unsafe to run on any computer that you care about, and should not be run without human oversight. It
-will automatically search for and execute unknown code, which inherently is dangerous. Putting it in the hands of AI
-is dangerous on top of that.
-
-I cannot recommend that anyone execute this code without a thorough understanding of what it is doing.
-
-Use at your own risk.
-
 ## Walkthrough
 
 ### Setup
